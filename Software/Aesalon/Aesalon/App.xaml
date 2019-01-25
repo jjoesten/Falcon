@@ -1,9 +1,15 @@
 ﻿<Application x:Class="Aesalon.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Aesalon"
-             StartupUri="MainWindow.xaml">
+             StartupUri="MainWindow.xaml"
+             DispatcherUnhandledException="Application_DispatcherUnhandledException">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ResourceDictionaries/erreur.xaml" />
+                <ResourceDictionary Source="ResourceDictionaries/light_off.xaml" />
+                <ResourceDictionary Source="ResourceDictionaries/light_on.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

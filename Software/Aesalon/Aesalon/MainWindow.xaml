@@ -3,10 +3,26 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Aesalon"
+        xmlns:lang="clr-namespace:Aesalon.Translations"
+        xmlns:taskbar="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="100" Width="100"
+        Visibility="Hidden">
     <Grid>
-        
+        <taskbar:TaskbarIcon Name="TaskbarIcon"
+                             IconSource="Aesalon.ico"
+                             ToolTipText="{x:Static lang:Main.ApplicationTitle}">
+            <taskbar:TaskbarIcon.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Name="MenuItemConfigure"
+                              Header="{x:Static lang:Main.MenuItemConfigure}"
+                              Click="MenuItemConfigure_Click" />
+                    <Separator />
+                    <MenuItem Name="MenuItemQuit"
+                              Header="{x:Static lang:Main.MenuItemQuit}"
+                              Click="MenuItemQuit_Click" />
+                </ContextMenu>
+            </taskbar:TaskbarIcon.ContextMenu>
+        </taskbar:TaskbarIcon>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hardcodet.Wpf.TaskbarNotification;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,35 @@ namespace Aesalon
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ConfigurationDialog configurationDialog;
+
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
+            //TaskbarIcon.ShowBalloonTip(Translations.Main.ApplicationTitle, Translations.Main.ApplicationStartedBalloonText, BalloonIcon.Info)
+        }
+
+        private void MenuItemConfigure_Click(object sender, RoutedEventArgs e)
+        {
+            if (configurationDialog == null)
+            {
+                MenuItemQuit.IsEnabled = false;
+                configurationDialog = new ConfigurationDialog();
+                configurationDialog.ShowDialog();
+                configurationDialog = null;
+                MenuItemQuit.IsEnabled = true;
+            }
+            else
+            {
+                configurationDialog.Activate();
+            }
+        }
+
+        private void MenuItemQuit_Click(object sender, RoutedEventArgs e)
+        {
+            if (configurationDialog == null)
+                Close();
         }
     }
 }
