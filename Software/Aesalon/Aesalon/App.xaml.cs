@@ -27,14 +27,14 @@ namespace Aesalon
 
             try
             {
-               // TODO: Try loading config file
+                ConfigHolder.Singleton.Load();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, Translations.Main.ConfigLoadErrorCaption, MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            // TODO: Start Falcon Connector
+            FalconConnector.Singleton.Start();
         }
 
         private Mutex uniqueInstanceMutex;

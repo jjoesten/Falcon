@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Windows;
 
@@ -28,8 +29,8 @@ namespace Aesalon
         public RelayCommand SaveCommand { get; private set; }
         public RelayCommand LoadCommand { get; private set; }
 
-        // TODO: FalconLight list
-        // TODO: FalconGauge list
+        public List<FalconLight> FalconLightList { get { return FalconConnector.Singleton.LightList; } }
+        public List<FalconGauge> FalconGaugeList { get { return FalconConnector.Singleton.GaugeList; } }
 
         #endregion
 

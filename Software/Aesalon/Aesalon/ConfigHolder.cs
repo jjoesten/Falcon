@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Xml.Serialization;
 
 namespace Aesalon
 {
@@ -39,12 +40,32 @@ namespace Aesalon
 
         public void Save()
         {
-            // TODO: Implement ConfigHolder.Save
+            Configuration.FormatVersion = Configuration.CurrentFormatVersion.ToString();
+
+            // Create Aesalon directory under AppData/Local path if it doesn't exist
+            Directory.CreateDirectory(appDataPath);
+
+            XmlSerializer xs = new XmlSerializer(typeof(Configuration));
+
+            using (Stream file = File.Create(configFileName))
+            {
+                xs.Serialize(file, Configuration);
+            }
         }
 
         public void Load()
         {
-            // TODO: Implement ConfigHolder.Load
+            if (!File.Exists(configFileName))
+                return;
+
+            XmlSerializer xs = new XmlSerializer(typeof(Configuration));
+
+            using (Stream file = File.OpenRead(configFileName))
+            {
+                Configuration newConfiguration = (Configuration)xs.Deserialize(file);
+                newConfiguration.SetOwner();
+                Configuration = newConfiguration;
+            }
         }
     }
 }

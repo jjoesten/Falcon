@@ -65,6 +65,9 @@
       <DependentUpon>ConfigurationDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConfigurationViewModel.cs" />
+    <Compile Include="FalconConnector.cs" />
+    <Compile Include="FalconGauge.cs" />
+    <Compile Include="FalconLight.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="Translations\Main.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -136,6 +139,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Aesalon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\F4SharedMem\F4SharedMem.csproj">
+      <Project>{5dd778b8-ab3e-4b23-b363-49f51fb28e76}</Project>
+      <Name>F4SharedMem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimplifiedCommon\SimplifiedCommon.csproj">
+      <Project>{638452a8-adb8-433c-ab4b-793083c7d4c0}</Project>
+      <Name>SimplifiedCommon</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
