@@ -20,10 +20,7 @@ namespace Aesalon
             get { return FalconConnector.Singleton.ReadFalconDataTimerInterval.TotalMilliseconds; }
             set { FalconConnector.Singleton.ReadFalconDataTimerInterval = TimeSpan.FromMilliseconds(value); }
         }
-
-
-
-
+                     
         #region SetOwner
         public void SetOwner()
         {

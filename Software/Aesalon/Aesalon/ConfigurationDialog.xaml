@@ -4,9 +4,47 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Aesalon"
+        xmlns:lang="clr-namespace:Aesalon.Translations"
+        xmlns:ComponentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         mc:Ignorable="d"
-        Title="ConfigurationDialog" Height="450" Width="800">
-    <Grid>
+        Icon="Aesalon.ico"
+        Title="{Binding Path=Title}"
+        Height="900" Width="900"
+        SizeToContent="Width"
+        Unloaded="Window_Unloaded">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <local:NullToVisibilityConverter x:Key="NullToHiddenConverter" NullVisibility="Collapsed" />
+
+        <CollectionViewSource x:Key="FalconLightList"
+                              Source="{Binding Path=FalconLightList}">
+            <CollectionViewSource.SortDescriptions>
+                <ComponentModel:SortDescription PropertyName="Group" Direction="Ascending" />
+                <ComponentModel:SortDescription PropertyName="Label" Direction="Ascending" />
+            </CollectionViewSource.SortDescriptions>
+            <CollectionViewSource.GroupDescriptions>
+                <PropertyGroupDescription PropertyName="Group" />
+            </CollectionViewSource.GroupDescriptions>
+        </CollectionViewSource>
+
+        <CollectionViewSource x:Key="FalconGaugeList"
+                              Source="{Binding Path=FalconGaugeList}">
+            <CollectionViewSource.SortDescriptions>
+                <ComponentModel:SortDescription PropertyName="Label" Direction="Ascending" />
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+
+        <DataTemplate x:Key="FalconLightGroupTemplate"
+                      DataType="{x:Type CollectionViewGroup}">
+            <TextBlock Text="{Binding Path=Name}"
+                       Margin="0,5,0,0"
+                       Padding="3"
+                       Background="LightGray" />
+        </DataTemplate>
+    </Window.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                  HorizontalScrollBarVisibility="Auto">
         
-    </Grid>
+    </ScrollViewer>
 </Window>
