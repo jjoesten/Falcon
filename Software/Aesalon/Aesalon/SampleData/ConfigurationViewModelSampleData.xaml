@@ -1,0 +1,35 @@
+﻿<Aesalon:ConfigurationViewModel xmlns:Aesalon="clr-namespace:Aesalon" xmlns:System="clr-namespace:System;assembly=mscorlib" Title="Aesalon">
+	<Aesalon:ConfigurationViewModel.ConfigHolder>
+		<Aesalon:ConfigHolder>
+			<Aesalon:ConfigHolder.Configuration>
+				<Aesalon:Configuration FormatVersion="1.1" ReadFalconDataTimerIntervalMS="866.01">
+					<Aesalon:Configuration.AddPoKeysCommand>
+						<Aesalon:RelayCommand/>
+					</Aesalon:Configuration.AddPoKeysCommand>
+					<!--<Aesalon:Configuration.AddArduinoGaugeDriverCommand>
+						<Aesalon:RelayCommand/>
+					</Aesalon:Configuration.AddArduinoGaugeDriverCommand>-->
+					<Aesalon:Configuration.CurrentFormatVersion>
+						<System:Version/>
+					</Aesalon:Configuration.CurrentFormatVersion>
+				</Aesalon:Configuration>
+			</Aesalon:ConfigHolder.Configuration>
+			<Aesalon:ConfigHolder.Singleton>
+				<Aesalon:ConfigHolder>
+					<Aesalon:ConfigHolder.Configuration>
+						<Aesalon:Configuration FormatVersion="1.1" ReadFalconDataTimerIntervalMS="213.21"/>
+					</Aesalon:ConfigHolder.Configuration>
+					<Aesalon:ConfigHolder.Singleton>
+						<Aesalon:ConfigHolder/>
+					</Aesalon:ConfigHolder.Singleton>
+				</Aesalon:ConfigHolder>
+			</Aesalon:ConfigHolder.Singleton>
+		</Aesalon:ConfigHolder>
+	</Aesalon:ConfigurationViewModel.ConfigHolder>
+	<Aesalon:ConfigurationViewModel.LoadCommand>
+		<Aesalon:RelayCommand/>
+	</Aesalon:ConfigurationViewModel.LoadCommand>
+	<Aesalon:ConfigurationViewModel.SaveCommand>
+		<Aesalon:RelayCommand/>
+	</Aesalon:ConfigurationViewModel.SaveCommand>
+</Aesalon:ConfigurationViewModel>

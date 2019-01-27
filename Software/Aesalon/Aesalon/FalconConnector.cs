@@ -10,7 +10,6 @@ namespace Aesalon
     internal class FalconConnector
     {
         #region Singleton
-        // TODO: Rewrite Singleton Property
         private static FalconConnector singleton;
         public static FalconConnector Singleton
         {

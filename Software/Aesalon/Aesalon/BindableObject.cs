@@ -24,11 +24,15 @@ namespace Aesalon
 
         void RaisePropertyChangedExplicit(string propertyName)
         {
+            VerifyProperty(propertyName);
+
             PropertyChangedEventHandler handler = this.PropertyChanged;
             if (handler != null)
             {
-                var e = new PropertyChangedEventArgs(propertyName);
-                handler(this, e);
+                if (string.IsNullOrEmpty(propertyName))
+                    throw new ArgumentException("propertyName must not be null or empty.");
+
+                handler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
 
