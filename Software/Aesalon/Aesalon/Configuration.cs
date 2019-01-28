@@ -26,7 +26,7 @@ namespace Aesalon
         public Configuration()
         {
             AddPoKeysCommand = new RelayCommand(ExecuteAddPoKeys);
-            // TODO: Add Arduino Gauge Driver
+            AddArduinoGaugeCommand = new RelayCommand(ExecuteAddArduinoGauge);
             // TODO: Add DEDuino
         }
 
@@ -45,6 +45,9 @@ namespace Aesalon
             // TODO: SetOwner for registered devices (pokeys, gauge drivers)
             foreach (PoKeys poKeys in PoKeysList)
                 poKeys.SetOwner(this);
+
+            foreach (ArduinoGauge arduinoGauge in ArduinoGaugeList)
+                arduinoGauge.SetOwner(this);
         }
         #endregion
 
@@ -71,6 +74,28 @@ namespace Aesalon
             PoKeysList.Add(poKeys);
         }
 
+        #endregion
+
+        #region ArduinoGauge
+        private ObservableCollection<ArduinoGauge> arduinoGaugeList = new ObservableCollection<ArduinoGauge>();
+        public ObservableCollection<ArduinoGauge> ArduinoGaugeList
+        {
+            get { return arduinoGaugeList; }
+            set
+            {
+                arduinoGaugeList = value;
+                RaisePropertyChanged(() => ArduinoGaugeList);
+            }
+        }
+
+        [XmlIgnore]
+        public RelayCommand AddArduinoGaugeCommand { get; private set; }
+        private void ExecuteAddArduinoGauge(object o)
+        {
+            ArduinoGauge arduinoGauge = new ArduinoGauge();
+            arduinoGauge.SetOwner(this);
+            ArduinoGaugeList.Add(arduinoGauge);
+        }
         #endregion
     }
 }

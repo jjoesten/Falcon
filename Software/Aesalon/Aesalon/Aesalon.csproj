@@ -61,6 +61,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ArduinoGauge.cs" />
+    <Compile Include="ArduinoGaugeEnumerator.cs" />
+    <Compile Include="ArduinoGaugePoint.cs" />
+    <Compile Include="ArduinoGaugeStepperMotor.cs" />
     <Compile Include="AvailablePoKeys.cs" />
     <Compile Include="BindableObject.cs" />
     <Compile Include="ConfigHolder.cs" />
@@ -170,6 +174,10 @@
     <Resource Include="Aesalon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Aesalon.ArduinoDevices\Aesalon.ArduinoDevices.csproj">
+      <Project>{48caddea-38e1-42fc-9bc0-b753e4296fe1}</Project>
+      <Name>Aesalon.ArduinoDevices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\F4SharedMem\F4SharedMem.csproj">
       <Project>{5dd778b8-ab3e-4b23-b363-49f51fb28e76}</Project>
       <Name>F4SharedMem</Name>
