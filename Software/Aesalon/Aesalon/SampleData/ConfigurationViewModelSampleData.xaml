@@ -6,9 +6,9 @@
 					<Aesalon:Configuration.AddPoKeysCommand>
 						<Aesalon:RelayCommand/>
 					</Aesalon:Configuration.AddPoKeysCommand>
-					<!--<Aesalon:Configuration.AddArduinoGaugeDriverCommand>
+					<Aesalon:Configuration.AddArduinoGaugeCommand>
 						<Aesalon:RelayCommand/>
-					</Aesalon:Configuration.AddArduinoGaugeDriverCommand>-->
+					</Aesalon:Configuration.AddArduinoGaugeCommand>
 					<Aesalon:Configuration.CurrentFormatVersion>
 						<System:Version/>
 					</Aesalon:Configuration.CurrentFormatVersion>
