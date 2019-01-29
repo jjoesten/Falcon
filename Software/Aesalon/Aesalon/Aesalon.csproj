@@ -73,6 +73,8 @@
       <DependentUpon>ConfigurationDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConfigurationViewModel.cs" />
+    <Compile Include="DEDuino.cs" />
+    <Compile Include="DEDuinoEnumerator.cs" />
     <Compile Include="DigitalOutput.cs" />
     <Compile Include="FalconConnector.cs" />
     <Compile Include="FalconGauge.cs" />

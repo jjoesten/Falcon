@@ -44,9 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DEDuinoDevice.cs" />
     <Compile Include="GaugeDevice.cs" />
     <Compile Include="GaugeDriver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\F4SharedMem\F4SharedMem.csproj">
+      <Project>{5dd778b8-ab3e-4b23-b363-49f51fb28e76}</Project>
+      <Name>F4SharedMem</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

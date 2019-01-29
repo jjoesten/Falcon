@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace Aesalon
@@ -27,27 +23,33 @@ namespace Aesalon
         {
             AddPoKeysCommand = new RelayCommand(ExecuteAddPoKeys);
             AddArduinoGaugeCommand = new RelayCommand(ExecuteAddArduinoGauge);
-            // TODO: Add DEDuino
+            AddDEDuinoCommand = new RelayCommand(ExecuteAddDEDuino);
         }
 
         public void Dispose()
         {
-            // TODO: Implement Configuration.Dispose
-            // Dispose of registered devices
             foreach (PoKeys poKeys in PoKeysList)
                 poKeys.Dispose();
+
+            foreach (ArduinoGauge arduinoGauge in ArduinoGaugeList)
+                arduinoGauge.Dispose();
+
+            foreach (DEDuino deduino in DEDuinoList)
+                deduino.Dispose();
         }
         #endregion
 
         #region SetOwner
         public void SetOwner()
-        {
-            // TODO: SetOwner for registered devices (pokeys, gauge drivers)
+        {            
             foreach (PoKeys poKeys in PoKeysList)
                 poKeys.SetOwner(this);
 
             foreach (ArduinoGauge arduinoGauge in ArduinoGaugeList)
                 arduinoGauge.SetOwner(this);
+
+            foreach (DEDuino deduino in DEDuinoList)
+                deduino.SetOwner(this);
         }
         #endregion
 
@@ -96,6 +98,30 @@ namespace Aesalon
             arduinoGauge.SetOwner(this);
             ArduinoGaugeList.Add(arduinoGauge);
         }
+        #endregion
+
+        #region DEDuino
+
+        private ObservableCollection<DEDuino> deduinoList = new ObservableCollection<DEDuino>();
+        public ObservableCollection<DEDuino> DEDuinoList
+        {
+            get { return deduinoList; }
+            set
+            {
+                deduinoList = value;
+                RaisePropertyChanged(() => DEDuinoList);
+            }
+        }
+
+        [XmlIgnore]
+        public RelayCommand AddDEDuinoCommand { get; private set; }
+        private void ExecuteAddDEDuino(object o)
+        {
+            DEDuino deduino = new DEDuino();
+            deduino.SetOwner(this);
+            DEDuinoList.Add(deduino);
+        }
+
         #endregion
     }
 }
