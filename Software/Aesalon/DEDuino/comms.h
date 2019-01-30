@@ -1,13 +1,8 @@
 #ifndef comms_h
 #define comms_h
 
-#if defined(ARDUINO_UNO)
-#define BAUDRATE 28800 // 9600 * 3
-#define SERIAL_TIMEOUT 100 // too low of a value will cause displays to jump as connection is not fast enough
-#else
-#define BAUDRATE = 115200 // 9600 * 12
-#define SERIAL_TIMEOUT 50 // too low of a value will cause displays to jump as connection is not fast enough
-#endif
+constexpr auto BAUDRATE = 115200; // 9600 * 12;
+constexpr auto SERIAL_TIMEOUT = 50; // Too low of a value will cause displays to jump if connection is not fast enough;
 
 #if defined(ARDUINO_DUE_NATIVE)
 #define COM SerialUSB
@@ -21,7 +16,8 @@ void initSerial() {
 	COM.setTimeout(SERIAL_TIMEOUT);
 }
 
-// Sleep main logic (every read is reporting to this function)
+// Sleep logic
+// TODO: Revisit and implement sleep logic for displays
 bool gotoSleep = false;
 #define TIMED_OUT (millis()-last_comm) > (SLEEP_TIMER)
 unsigned long last_comm = millis();
@@ -36,4 +32,5 @@ void commsCheck(short report) {
 		gotoSleep = true;
 	}
 }
+
 #endif

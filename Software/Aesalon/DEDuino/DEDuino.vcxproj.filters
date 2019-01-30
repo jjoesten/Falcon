@@ -18,19 +18,13 @@
     <None Include="DEDuino.ino" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="__vm\.DEDuino.vsarduino.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="config.h">
+    <ClInclude Include="cmds.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="comms.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="internal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cmds.h">
+    <ClInclude Include="config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ded.h">
@@ -39,10 +33,16 @@
     <ClInclude Include="falconded_u8g2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="__vm\.DEDuino.vsarduino.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="fuelflow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="fuelflow_u8g2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="pfd.h">

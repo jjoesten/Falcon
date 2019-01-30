@@ -1,53 +1,17 @@
 /*
  Name:		DEDuino.ino
- Created:	3/28/2018 1:28:12 PM
- Author:	Joshua Joesten
- Notes: Uncomment the DEFINE for the Arduino board in use
-		Board supported by this version:
-		Arduino Uno
-		Arduino Micro
-		Arduino Due
-		
-		All Common config options are found under "config.h"
+ Created:	1/29/2019 3:08:39 PM
+ Author:	jjoesten
 
-		Uncomment the DEFINE for the features you wish to use
-		Features included in this version:
-		Displays: DED, FFI, CMDS, PFD
+ Notes:		Boards supported by this version:
+			Arduino DUE
+
+			All common config options are found in "config.h"
+
+			Uncomment the DEFINE for the features you wish to enable
+			Featues included in this version:
+			Displays: DED, FFI, CMDS, PFD, Speedbrake
 */
-
-#include <SPI.h>
-#include <Arduino.h>
-#include "config.h"
-
-/*
-	All Configuration options are set via the "config.h" file
-	DO NOT edit below this segment
-*/ 
-///****************************************************************///
-#define MICRO_DELAY delayMicroseconds(250);
-
-//////////////////////////////////////////////////////////////////////
-// ARDUINO UNO														//
-// SCK - Pin 13														//
-// MISO - Pin 12 (Not used in this project)							//
-// MOSI - Pin 11													//
-// SS - Pin 10 (Set to output and pulled high on startup			//
-//////////////////////////////////////////////////////////////////////
-#ifdef ARDUINO_UNO
-#define SCK 13
-#define MISO 12
-#define MOSI 11
-#define SS 10
-#endif
-
-//////////////////////////////////////////////////////////////////////
-// ARDUINO MICRO													//
-// SCK, MISO, MOSI - all on dedicated pins no define needed			//
-// use the Arduino Micro pinout for reference						//
-// https://www.arduino.cc/en/uploads/Main/ArduinoMicro_Pinout3.png	//
-//////////////////////////////////////////////////////////////////////
-#ifdef ARDUINO_MICRO
-#endif
 
 //////////////////////////////////////////////////////////////////////
 // ARDUINO DUE														//
@@ -63,14 +27,24 @@
 //		  Use the one closer to the ARM chip						//
 //		* Connect the Due using the "Native USB" port				//
 //////////////////////////////////////////////////////////////////////
-#ifdef ARDUINO_DUE
-#endif
+
+/*
+	ALL CONFIGURATIONS OPTIONS ARE SET IN "config.h"
+	DO NOT EDIT BELOW THIS SEGMENT
+*/
+
+#include <SPI.h>
+#include <Wire.h>
+#include <Arduino.h>
+#include "config.h"
+
+#define MICRO_DELAY delayMicroseconds(250);
 
 ////////////////
 /// INCLUDES ///
 ////////////////
 
-// Serial Comm
+// Serial Communication
 #include "comms.h"
 
 // Displays
@@ -105,18 +79,15 @@
 #include "internal.h"
 
 ///////////////
-/// Globals ///
+/// GLOBALS ///
 ///////////////
 
 short Run = 0;
 
-/////////////////
-/// Functions ///
-/////////////////
-
 /// MAIN PROGRAM ///
+
 void setup() {
-	delay(2000); // Allow screens to boot on power before init.
+	delay(2000); // Allow screens to boot before init.
 
 	initSerial();
 
@@ -125,7 +96,7 @@ void setup() {
 	initFF();
 #endif
 
-#ifdef SpeedBrake_on
+#ifdef Speedbrake_on
 	initSB();
 #endif
 
@@ -141,32 +112,35 @@ void setup() {
 	initCMDS();
 #endif
 
-	delay(POST_BOOT_BIT); // Allows the user to verify screens
+	delay(POST_BOOT_BIT); // Allows time for the user to verify screens
 }
 
+// the loop function runs over and over again until power down or reset
 void loop() {
 	if (gotoSleep)
 		goDark();
+	
+	// Refresh critical functions, run these every frame (FF twice for refresh rate)
 
-	// Fuel Flow
 #ifdef FuelFlow_on
 	readFF();
 	drawFF();
 #endif
 
-	// DED
 #ifdef DED_on
 	readDED();
 	drawDED();
 #endif
 
-	// Fuel Flow (again) - for refresh rate
 #ifdef FuelFlow_on
 	readFF();
 	drawFF();
 #endif
 
-	// Non refresh critical functions, run these alternating every loop
+	// Non refresh critical functions, run these on alternating loops
+	// PFD loop 0
+	// CMDS loop 1
+	// SB loop 2
 	switch (Run)
 	{
 	case 0:
@@ -192,5 +166,3 @@ void loop() {
 		break;
 	}
 }
-
-
