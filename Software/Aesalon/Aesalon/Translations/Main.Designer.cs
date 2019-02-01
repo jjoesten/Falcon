@@ -19,10 +19,10 @@ namespace Aesalon.Translations {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Main {
+    internal class Main {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Aesalon.Translations {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Aesalon.Translations.Main", typeof(Main).Assembly);
@@ -51,7 +51,7 @@ namespace Aesalon.Translations {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Add a Arduino Gauge Driver.
         /// </summary>
-        public static string AddArduinoGaugeDriverButton {
+        internal static string AddArduinoGaugeDriverButton {
             get {
                 return ResourceManager.GetString("AddArduinoGaugeDriverButton", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Add DEDuino.
         /// </summary>
-        public static string AddDEDuinoButton {
+        internal static string AddDEDuinoButton {
             get {
                 return ResourceManager.GetString("AddDEDuinoButton", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Add a digital output.
         /// </summary>
-        public static string AddDigitalOutputButton {
+        internal static string AddDigitalOutputButton {
             get {
                 return ResourceManager.GetString("AddDigitalOutputButton", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Add a matrix LED output.
         /// </summary>
-        public static string AddMatrixLedOutputButton {
+        internal static string AddMatrixLedOutputButton {
             get {
                 return ResourceManager.GetString("AddMatrixLedOutputButton", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Add a PoKeys.
         /// </summary>
-        public static string AddPoKeysButton {
+        internal static string AddPoKeysButton {
             get {
                 return ResourceManager.GetString("AddPoKeysButton", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Add a 7 segment display.
         /// </summary>
-        public static string AddSevenSegmentDisplayButton {
+        internal static string AddSevenSegmentDisplayButton {
             get {
                 return ResourceManager.GetString("AddSevenSegmentDisplayButton", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Add a stepper motor.
         /// </summary>
-        public static string AddStepperMotorButton {
+        internal static string AddStepperMotorButton {
             get {
                 return ResourceManager.GetString("AddStepperMotorButton", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Add a point.
         /// </summary>
-        public static string AddStepperMotorPointButton {
+        internal static string AddStepperMotorPointButton {
             get {
                 return ResourceManager.GetString("AddStepperMotorPointButton", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Aesalon Started.
         /// </summary>
-        public static string ApplicationStartedBalloonText {
+        internal static string ApplicationStartedBalloonText {
             get {
                 return ResourceManager.GetString("ApplicationStartedBalloonText", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Aesalon Started.
         /// </summary>
-        public static string ApplicationStartedBalloonTip {
+        internal static string ApplicationStartedBalloonTip {
             get {
                 return ResourceManager.GetString("ApplicationStartedBalloonTip", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Aesalon.
         /// </summary>
-        public static string ApplicationTitle {
+        internal static string ApplicationTitle {
             get {
                 return ResourceManager.GetString("ApplicationTitle", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Arduino Gauge Driver.
         /// </summary>
-        public static string ArduinoGaugeDriverConfigCaption {
+        internal static string ArduinoGaugeDriverConfigCaption {
             get {
                 return ResourceManager.GetString("ArduinoGaugeDriverConfigCaption", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Not Found.
         /// </summary>
-        public static string ArduinoGaugeDriverNotFoundError {
+        internal static string ArduinoGaugeDriverNotFoundError {
             get {
                 return ResourceManager.GetString("ArduinoGaugeDriverNotFoundError", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Configuration load error.
         /// </summary>
-        public static string ConfigLoadErrorCaption {
+        internal static string ConfigLoadErrorCaption {
             get {
                 return ResourceManager.GetString("ConfigLoadErrorCaption", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Configuration save error.
         /// </summary>
-        public static string ConfigSaveErrorCaption {
+        internal static string ConfigSaveErrorCaption {
             get {
                 return ResourceManager.GetString("ConfigSaveErrorCaption", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Remove a digit.
         /// </summary>
-        public static string DecrementTotalSizeButton {
+        internal static string DecrementTotalSizeButton {
             get {
                 return ResourceManager.GetString("DecrementTotalSizeButton", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to DEDuino.
         /// </summary>
-        public static string DEDuinoConfigCaption {
+        internal static string DEDuinoConfigCaption {
             get {
                 return ResourceManager.GetString("DEDuinoConfigCaption", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Not Found.
         /// </summary>
-        public static string DEDuinoNotFoundError {
+        internal static string DEDuinoNotFoundError {
             get {
                 return ResourceManager.GetString("DEDuinoNotFoundError", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Digital output.
         /// </summary>
-        public static string DigitalOutputConfigCaption {
+        internal static string DigitalOutputConfigCaption {
             get {
                 return ResourceManager.GetString("DigitalOutputConfigCaption", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to This pin is not a digital output.
         /// </summary>
-        public static string DigitalOutputErrorBadIOType {
+        internal static string DigitalOutputErrorBadIOType {
             get {
                 return ResourceManager.GetString("DigitalOutputErrorBadIOType", resourceCulture);
             }
@@ -243,7 +243,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Pin IO type read error.
         /// </summary>
-        public static string DigitalOutputErrorGetIOType {
+        internal static string DigitalOutputErrorGetIOType {
             get {
                 return ResourceManager.GetString("DigitalOutputErrorGetIOType", resourceCulture);
             }
@@ -252,7 +252,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Digital output write error.
         /// </summary>
-        public static string DigitalOutputErrorWrite {
+        internal static string DigitalOutputErrorWrite {
             get {
                 return ResourceManager.GetString("DigitalOutputErrorWrite", resourceCulture);
             }
@@ -261,7 +261,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Digital Outputs ({0}).
         /// </summary>
-        public static string DigitalOutputExpanderHeader {
+        internal static string DigitalOutputExpanderHeader {
             get {
                 return ResourceManager.GetString("DigitalOutputExpanderHeader", resourceCulture);
             }
@@ -270,7 +270,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Off.
         /// </summary>
-        public static string FalconLightConsumerConfigOffButton {
+        internal static string FalconLightConsumerConfigOffButton {
             get {
                 return ResourceManager.GetString("FalconLightConsumerConfigOffButton", resourceCulture);
             }
@@ -279,7 +279,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to On.
         /// </summary>
-        public static string FalconLightConsumerConfigOnButton {
+        internal static string FalconLightConsumerConfigOnButton {
             get {
                 return ResourceManager.GetString("FalconLightConsumerConfigOnButton", resourceCulture);
             }
@@ -288,7 +288,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Falcon data sampling interval:.
         /// </summary>
-        public static string FalconSamplingInterval {
+        internal static string FalconSamplingInterval {
             get {
                 return ResourceManager.GetString("FalconSamplingInterval", resourceCulture);
             }
@@ -297,7 +297,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to millisecond.
         /// </summary>
-        public static string FalconSamplingUnit {
+        internal static string FalconSamplingUnit {
             get {
                 return ResourceManager.GetString("FalconSamplingUnit", resourceCulture);
             }
@@ -306,7 +306,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Maximum digit number after decimal point.
         /// </summary>
-        public static string FractionalPartSizeCaption {
+        internal static string FractionalPartSizeCaption {
             get {
                 return ResourceManager.GetString("FractionalPartSizeCaption", resourceCulture);
             }
@@ -315,7 +315,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Add a digit.
         /// </summary>
-        public static string IncrementTotalSizeButton {
+        internal static string IncrementTotalSizeButton {
             get {
                 return ResourceManager.GetString("IncrementTotalSizeButton", resourceCulture);
             }
@@ -324,7 +324,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Minimum digit number before decimal point.
         /// </summary>
-        public static string IntegralPartMinSizeCaption {
+        internal static string IntegralPartMinSizeCaption {
             get {
                 return ResourceManager.GetString("IntegralPartMinSizeCaption", resourceCulture);
             }
@@ -333,7 +333,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to This matrix LED display is not enabled.
         /// </summary>
-        public static string MatrixLedErrorNotEnabled {
+        internal static string MatrixLedErrorNotEnabled {
             get {
                 return ResourceManager.GetString("MatrixLedErrorNotEnabled", resourceCulture);
             }
@@ -342,7 +342,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Matrix LED display write error.
         /// </summary>
-        public static string MatrixLedErrorWrite {
+        internal static string MatrixLedErrorWrite {
             get {
                 return ResourceManager.GetString("MatrixLedErrorWrite", resourceCulture);
             }
@@ -351,7 +351,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Matrix LED output.
         /// </summary>
-        public static string MatrixLedOutputConfigCaption {
+        internal static string MatrixLedOutputConfigCaption {
             get {
                 return ResourceManager.GetString("MatrixLedOutputConfigCaption", resourceCulture);
             }
@@ -360,7 +360,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Column.
         /// </summary>
-        public static string MatrixLedOutputConfigColumn {
+        internal static string MatrixLedOutputConfigColumn {
             get {
                 return ResourceManager.GetString("MatrixLedOutputConfigColumn", resourceCulture);
             }
@@ -369,7 +369,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Row.
         /// </summary>
-        public static string MatrixLedOutputConfigRow {
+        internal static string MatrixLedOutputConfigRow {
             get {
                 return ResourceManager.GetString("MatrixLedOutputConfigRow", resourceCulture);
             }
@@ -378,7 +378,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Matrix LED Outputs ({0}).
         /// </summary>
-        public static string MatrixLedOutputExpanderHeader {
+        internal static string MatrixLedOutputExpanderHeader {
             get {
                 return ResourceManager.GetString("MatrixLedOutputExpanderHeader", resourceCulture);
             }
@@ -387,7 +387,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to This matrix LED output ({0}, {1}) is not enabled.
         /// </summary>
-        public static string MatrixLedPixelErrorNotEnabled {
+        internal static string MatrixLedPixelErrorNotEnabled {
             get {
                 return ResourceManager.GetString("MatrixLedPixelErrorNotEnabled", resourceCulture);
             }
@@ -396,7 +396,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Configure.
         /// </summary>
-        public static string MenuItemConfigure {
+        internal static string MenuItemConfigure {
             get {
                 return ResourceManager.GetString("MenuItemConfigure", resourceCulture);
             }
@@ -405,7 +405,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Quit.
         /// </summary>
-        public static string MenuItemQuit {
+        internal static string MenuItemQuit {
             get {
                 return ResourceManager.GetString("MenuItemQuit", resourceCulture);
             }
@@ -414,16 +414,25 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Shared Memory Recorder.
         /// </summary>
-        public static string MenuItemSharedMemoryRecorder {
+        internal static string MenuItemSharedMemoryRecorder {
             get {
                 return ResourceManager.GetString("MenuItemSharedMemoryRecorder", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Shared Memory Mirror.
+        /// </summary>
+        internal static string MirrorConfigure {
+            get {
+                return ResourceManager.GetString("MirrorConfigure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fixed size.
         /// </summary>
-        public static string PadFractionalPartWithZeroCaption {
+        internal static string PadFractionalPartWithZeroCaption {
             get {
                 return ResourceManager.GetString("PadFractionalPartWithZeroCaption", resourceCulture);
             }
@@ -432,7 +441,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to PoKeys.
         /// </summary>
-        public static string PoKeysConfigCaption {
+        internal static string PoKeysConfigCaption {
             get {
                 return ResourceManager.GetString("PoKeysConfigCaption", resourceCulture);
             }
@@ -441,7 +450,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to PoKeys connection error.
         /// </summary>
-        public static string PoKeysConnectError {
+        internal static string PoKeysConnectError {
             get {
                 return ResourceManager.GetString("PoKeysConnectError", resourceCulture);
             }
@@ -450,7 +459,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to PoKeys not found.
         /// </summary>
-        public static string PoKeysNotFoundError {
+        internal static string PoKeysNotFoundError {
             get {
                 return ResourceManager.GetString("PoKeysNotFoundError", resourceCulture);
             }
@@ -459,7 +468,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Remove Arduino Gauge Driver.
         /// </summary>
-        public static string RemoveArduinoGaugeDriverCaption {
+        internal static string RemoveArduinoGaugeDriverCaption {
             get {
                 return ResourceManager.GetString("RemoveArduinoGaugeDriverCaption", resourceCulture);
             }
@@ -468,7 +477,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Remove Arduino Gauge Driver {0}?.
         /// </summary>
-        public static string RemoveArduinoGaugeDriverText {
+        internal static string RemoveArduinoGaugeDriverText {
             get {
                 return ResourceManager.GetString("RemoveArduinoGaugeDriverText", resourceCulture);
             }
@@ -477,7 +486,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Remove.
         /// </summary>
-        public static string RemoveButton {
+        internal static string RemoveButton {
             get {
                 return ResourceManager.GetString("RemoveButton", resourceCulture);
             }
@@ -486,7 +495,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Remove DEDuino.
         /// </summary>
-        public static string RemoveDEDuinoCaption {
+        internal static string RemoveDEDuinoCaption {
             get {
                 return ResourceManager.GetString("RemoveDEDuinoCaption", resourceCulture);
             }
@@ -495,7 +504,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Remove DEDuino on {0}?.
         /// </summary>
-        public static string RemoveDEDuinoText {
+        internal static string RemoveDEDuinoText {
             get {
                 return ResourceManager.GetString("RemoveDEDuinoText", resourceCulture);
             }
@@ -504,7 +513,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Remove digital output.
         /// </summary>
-        public static string RemoveDigitalOutputCaption {
+        internal static string RemoveDigitalOutputCaption {
             get {
                 return ResourceManager.GetString("RemoveDigitalOutputCaption", resourceCulture);
             }
@@ -513,7 +522,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Remove digital output {0}?.
         /// </summary>
-        public static string RemoveDigitalOutputText {
+        internal static string RemoveDigitalOutputText {
             get {
                 return ResourceManager.GetString("RemoveDigitalOutputText", resourceCulture);
             }
@@ -522,7 +531,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Remove matrix LED output.
         /// </summary>
-        public static string RemoveMatrixLedOutputCaption {
+        internal static string RemoveMatrixLedOutputCaption {
             get {
                 return ResourceManager.GetString("RemoveMatrixLedOutputCaption", resourceCulture);
             }
@@ -531,7 +540,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Remove matrix LED output ({1},{2}) of {0}?.
         /// </summary>
-        public static string RemoveMatrixLedOutputText {
+        internal static string RemoveMatrixLedOutputText {
             get {
                 return ResourceManager.GetString("RemoveMatrixLedOutputText", resourceCulture);
             }
@@ -540,7 +549,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Remove PoKeys.
         /// </summary>
-        public static string RemovePoKeysCaption {
+        internal static string RemovePoKeysCaption {
             get {
                 return ResourceManager.GetString("RemovePoKeysCaption", resourceCulture);
             }
@@ -549,7 +558,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Remove PoKeys {0}?.
         /// </summary>
-        public static string RemovePoKeysText {
+        internal static string RemovePoKeysText {
             get {
                 return ResourceManager.GetString("RemovePoKeysText", resourceCulture);
             }
@@ -558,7 +567,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Remove 7 segment display.
         /// </summary>
-        public static string RemoveSevenSegmentDisplayCaption {
+        internal static string RemoveSevenSegmentDisplayCaption {
             get {
                 return ResourceManager.GetString("RemoveSevenSegmentDisplayCaption", resourceCulture);
             }
@@ -567,7 +576,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Remove 7 segment display {0}?.
         /// </summary>
-        public static string RemoveSevenSegmentDisplayText {
+        internal static string RemoveSevenSegmentDisplayText {
             get {
                 return ResourceManager.GetString("RemoveSevenSegmentDisplayText", resourceCulture);
             }
@@ -576,7 +585,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Remove stepper motor.
         /// </summary>
-        public static string RemoveStepperMotorCaption {
+        internal static string RemoveStepperMotorCaption {
             get {
                 return ResourceManager.GetString("RemoveStepperMotorCaption", resourceCulture);
             }
@@ -585,7 +594,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Remove stepper motor {0}?.
         /// </summary>
-        public static string RemoveStepperMotorText {
+        internal static string RemoveStepperMotorText {
             get {
                 return ResourceManager.GetString("RemoveStepperMotorText", resourceCulture);
             }
@@ -594,7 +603,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Digit matrix LED column index.
         /// </summary>
-        public static string SevenSegmentDigitColumnCaption {
+        internal static string SevenSegmentDigitColumnCaption {
             get {
                 return ResourceManager.GetString("SevenSegmentDigitColumnCaption", resourceCulture);
             }
@@ -603,7 +612,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Digit matrix LED row index.
         /// </summary>
-        public static string SevenSegmentDigitRowCaption {
+        internal static string SevenSegmentDigitRowCaption {
             get {
                 return ResourceManager.GetString("SevenSegmentDigitRowCaption", resourceCulture);
             }
@@ -612,7 +621,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to 7 segment display.
         /// </summary>
-        public static string SevenSegmentDisplayConfigCaption {
+        internal static string SevenSegmentDisplayConfigCaption {
             get {
                 return ResourceManager.GetString("SevenSegmentDisplayConfigCaption", resourceCulture);
             }
@@ -621,7 +630,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to 7 Segment Displays ({0}).
         /// </summary>
-        public static string SevenSegmentDisplayExpanderHeader {
+        internal static string SevenSegmentDisplayExpanderHeader {
             get {
                 return ResourceManager.GetString("SevenSegmentDisplayExpanderHeader", resourceCulture);
             }
@@ -630,7 +639,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Swap rows and columns of the matrix LED.
         /// </summary>
-        public static string SevenSegmentInvertRowColumnOption {
+        internal static string SevenSegmentInvertRowColumnOption {
             get {
                 return ResourceManager.GetString("SevenSegmentInvertRowColumnOption", resourceCulture);
             }
@@ -639,7 +648,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Segment matrix LED column index :.
         /// </summary>
-        public static string SevenSegmentSegmentColumnCaption {
+        internal static string SevenSegmentSegmentColumnCaption {
             get {
                 return ResourceManager.GetString("SevenSegmentSegmentColumnCaption", resourceCulture);
             }
@@ -648,7 +657,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Segment matrix LED row index :.
         /// </summary>
-        public static string SevenSegmentSegmentRowCaption {
+        internal static string SevenSegmentSegmentRowCaption {
             get {
                 return ResourceManager.GetString("SevenSegmentSegmentRowCaption", resourceCulture);
             }
@@ -657,7 +666,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Gauge.
         /// </summary>
-        public static string StepperMotorConfigCaption {
+        internal static string StepperMotorConfigCaption {
             get {
                 return ResourceManager.GetString("StepperMotorConfigCaption", resourceCulture);
             }
@@ -666,7 +675,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Falcon value.
         /// </summary>
-        public static string StepperMotorPointFalconValue {
+        internal static string StepperMotorPointFalconValue {
             get {
                 return ResourceManager.GetString("StepperMotorPointFalconValue", resourceCulture);
             }
@@ -675,7 +684,7 @@ namespace Aesalon.Translations {
         /// <summary>
         ///   Looks up a localized string similar to Step value.
         /// </summary>
-        public static string StepperMotorPointStepValue {
+        internal static string StepperMotorPointStepValue {
             get {
                 return ResourceManager.GetString("StepperMotorPointStepValue", resourceCulture);
             }

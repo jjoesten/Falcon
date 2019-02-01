@@ -18,6 +18,10 @@
                               Header="{x:Static lang:Main.MenuItemConfigure}"
                               Click="MenuItemConfigure_Click" />
                     <Separator />
+                    <MenuItem Name="MenuItemMirror"
+                              Header="{x:Static lang:Main.MirrorConfigure}"
+                              Click="MenuItemMirror_Click" />
+                    <Separator />
                     <MenuItem Name="MenuItemQuit"
                               Header="{x:Static lang:Main.MenuItemQuit}"
                               Click="MenuItemQuit_Click" />

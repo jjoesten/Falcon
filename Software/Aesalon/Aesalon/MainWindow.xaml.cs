@@ -22,6 +22,7 @@ namespace Aesalon
     public partial class MainWindow : Window
     {
         private ConfigurationDialog configurationDialog;
+        private MirrorDialog mirrorDialog;
 
         public MainWindow()
         {
@@ -50,6 +51,20 @@ namespace Aesalon
         {
             if (configurationDialog == null)
                 Close();
+        }
+
+        private void MenuItemMirror_Click(object sender, RoutedEventArgs e)
+        {
+            if (mirrorDialog == null)
+            {
+                mirrorDialog = new MirrorDialog();
+                mirrorDialog.ShowDialog();
+                mirrorDialog = null;
+            }
+            else
+            {
+                mirrorDialog.Activate();
+            }
         }
     }
 }

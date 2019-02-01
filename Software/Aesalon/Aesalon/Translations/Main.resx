@@ -324,4 +324,7 @@
   <data name="MenuItemSharedMemoryRecorder" xml:space="preserve">
     <value>Shared Memory Recorder</value>
   </data>
+  <data name="MirrorConfigure" xml:space="preserve">
+    <value>Shared Memory Mirror</value>
+  </data>
 </root>

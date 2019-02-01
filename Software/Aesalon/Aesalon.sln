@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2003
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28527.54
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External Projects", "External Projects", "{834E2005-7292-407F-B466-E2A1E7C61021}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aesalon.ArduinoDevices", "Aesalon.ArduinoDevices\Aesalon.ArduinoDevices.csproj", "{48CADDEA-38E1-42FC-9BC0-B753E4296FE1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F4SharedMemoryRecorder", "F4SharedMemoryRecorder\F4SharedMemoryRecorder.csproj", "{91C24FEE-184A-402F-A0A5-22B1157BBE38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F4SharedMemoryMirror", "F4SharedMemoryMirror\F4SharedMemoryMirror.csproj", "{2A6C84E8-9B59-476E-9C07-A1A1D553F6C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,14 @@ Global
 		{91C24FEE-184A-402F-A0A5-22B1157BBE38}.Release|Any CPU.Build.0 = Release|Any CPU
 		{91C24FEE-184A-402F-A0A5-22B1157BBE38}.Release|x86.ActiveCfg = Release|Any CPU
 		{91C24FEE-184A-402F-A0A5-22B1157BBE38}.Release|x86.Build.0 = Release|Any CPU
+		{2A6C84E8-9B59-476E-9C07-A1A1D553F6C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A6C84E8-9B59-476E-9C07-A1A1D553F6C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A6C84E8-9B59-476E-9C07-A1A1D553F6C3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2A6C84E8-9B59-476E-9C07-A1A1D553F6C3}.Debug|x86.Build.0 = Debug|Any CPU
+		{2A6C84E8-9B59-476E-9C07-A1A1D553F6C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A6C84E8-9B59-476E-9C07-A1A1D553F6C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A6C84E8-9B59-476E-9C07-A1A1D553F6C3}.Release|x86.ActiveCfg = Release|Any CPU
+		{2A6C84E8-9B59-476E-9C07-A1A1D553F6C3}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
