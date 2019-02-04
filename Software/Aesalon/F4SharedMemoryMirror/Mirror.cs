@@ -6,6 +6,7 @@ using System.Runtime.Remoting;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
+using System.Xml.Serialization;
 
 namespace F4SharedMemoryMirror
 {
@@ -15,22 +16,49 @@ namespace F4SharedMemoryMirror
         Server
     }
 
-    public class Mirror : IDisposable
+    public sealed class Mirror : IDisposable
     {
+        #region Singleton
+        public static Mirror Singleton { get; } = new Mirror();
+
+        // Explicit static constructor to tell compiler not to mark as beforefieldint
+        static Mirror() { }
+
+        private Mirror() { }
+        #endregion
+
         private volatile bool disposed;
         private volatile bool running;
 
         private CancellationTokenSource wToken;
-        ActionBlock<DateTimeOffset> task;
-        SharedMemoryMirrorClient client;
+        private ActionBlock<DateTimeOffset> task;
+        private SharedMemoryMirrorClient client;
 
         private readonly Writer writer = new Writer();
-        private Reader reader;       
+        private Reader reader;
+
+        #region Polling Frequency
+        private TimeSpan pollingFrequencyMS = TimeSpan.FromMilliseconds(100);
+        public TimeSpan PollingFrequencyMS
+        {
+            get { return pollingFrequencyMS; }
+            set
+            {
+                if (pollingFrequencyMS == value)
+                    return;
+                if (value.TotalMilliseconds < 0 || value.TotalMilliseconds > Int32.MaxValue)
+                    throw new ArgumentOutOfRangeException(nameof(PollingFrequencyMS));
+
+                pollingFrequencyMS = value;
+
+                // TODO: Change timer interval (if necessary...?)
+            }
+        }
+        #endregion
 
         public NetworkingMode NetworkingMode { get; set; }
         public int ServerPort { get; set; }
         public string ServerIP { get; set; }
-        public int PollingFrequencyMS { get; set; }
         public bool IsRunning { get { return running; } }
 
         ITargetBlock<DateTimeOffset> PollingTask(Action<DateTimeOffset> action, CancellationToken cancellationToken)
@@ -49,7 +77,7 @@ namespace F4SharedMemoryMirror
                 action(now);
 
                 // Wait
-                await Task.Delay(TimeSpan.FromMilliseconds(pollingDelay), cancellationToken).ConfigureAwait(false);
+                await Task.Delay(PollingFrequencyMS, cancellationToken).ConfigureAwait(false);
 
                 // Post the action back to the block
                 block.Post(DateTimeOffset.Now);
@@ -172,7 +200,7 @@ namespace F4SharedMemoryMirror
 
             try
             {
-                SharedMemoryMirrorServer.TearDownService(ServerPort);
+               // SharedMemoryMirrorServer.TearDownService(ServerPort);
             }
             catch (RemotingException) { }
 
@@ -187,6 +215,9 @@ namespace F4SharedMemoryMirror
 
             // Set task
             task = (ActionBlock<DateTimeOffset>)PollingTask(now => ServerWork(), wToken.Token);
+
+            // Start task
+            task.Post(DateTimeOffset.Now);
         }
 
         private void ServerWork()

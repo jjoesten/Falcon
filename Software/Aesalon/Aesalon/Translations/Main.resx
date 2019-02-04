@@ -327,4 +327,10 @@
   <data name="MirrorConfigure" xml:space="preserve">
     <value>Shared Memory Mirror</value>
   </data>
+  <data name="MirrorEnd" xml:space="preserve">
+    <value>Stop Mirroring</value>
+  </data>
+  <data name="MirrorStart" xml:space="preserve">
+    <value>Start Mirroring</value>
+  </data>
 </root>

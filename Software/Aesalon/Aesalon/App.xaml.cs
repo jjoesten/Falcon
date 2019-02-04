@@ -1,4 +1,5 @@
-﻿using System;
+﻿using F4SharedMemoryMirror;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -35,6 +36,9 @@ namespace Aesalon
             }
 
             FalconConnector.Singleton.Start();
+
+            if (ConfigHolder.Singleton.Configuration.StartMirrorOnApplicationStart)
+                Mirror.Singleton.StartMirroring();
         }
 
         private Mutex uniqueInstanceMutex;

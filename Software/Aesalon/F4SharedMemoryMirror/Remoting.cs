@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Diagnostics;
 using System.Globalization;
 using System.Net;
 using System.Runtime.Remoting;
@@ -129,21 +130,40 @@ namespace F4SharedMemoryMirror
                 ["port"] = port,
                 ["priority"] = 100
             };
-            TcpServerChannel channel;
+            TcpServerChannel channel = null;
 
             try
             {
                 RemotingConfiguration.CustomErrorsMode = CustomErrorsModes.Off;
+            }
+            catch (Exception)
+            { }
+
+            try
+            {
                 channel = new TcpServerChannel(prop, null, null);
-                ChannelServices.RegisterChannel(channel, false);
+            }
+            catch (Exception)
+            { }
+
+            try
+            {
+                if (channel != null)
+                    ChannelServices.RegisterChannel(channel, false);
+            }
+            catch(Exception)
+            { }
+
+            try
+            {
+                // register as an available service
                 RemotingConfiguration.RegisterWellKnownServiceType(
                     typeof(SharedMemoryMirrorServer),
                     serviceName,
                     WellKnownObjectMode.Singleton);
             }
             catch (Exception)
-            {
-            }
+            { }
         }
 
         internal static void TearDownService(int port)
@@ -151,15 +171,19 @@ namespace F4SharedMemoryMirror
             IDictionary prop = new Hashtable();
             prop["port"] = port;
             TcpServerChannel channel = null;
-
             try
             {
                 channel = new TcpServerChannel(prop, null, null);
-                ChannelServices.UnregisterChannel(channel);
             }
             catch (Exception)
+            { }
+
+            try
             {
+                ChannelServices.UnregisterChannel(channel);
             }
+            catch(Exception)
+            { }
         }
 
         public static void SetPrimaryFlightData(byte[] data)

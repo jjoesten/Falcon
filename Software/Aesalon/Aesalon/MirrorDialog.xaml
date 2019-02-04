@@ -4,13 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Aesalon"
+        xmlns:lang="clr-namespace:Aesalon.Translations"
         mc:Ignorable="d"
         Title="MirrorDialog" Height="450" Width="800">
     <StackPanel Orientation="Vertical">
         <!-- START/STOP BUTTONS -->
         <StackPanel Orientation="Horizontal">
-            <Button Content="Start Mirroring" />
-            <Button Content="Stop Mirroring" />
+            <Button Content="{x:Static lang:Main.MirrorStart}" />
+            <Button Content="{x:Static lang:Main.MirrorEnd}" />
         </StackPanel>
         <!-- NETWORKING SETTINGS -->
         <GroupBox Header="Networking Settings">

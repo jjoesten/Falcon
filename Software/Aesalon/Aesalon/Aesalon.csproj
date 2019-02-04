@@ -85,6 +85,7 @@
     <Compile Include="MirrorDialog.xaml.cs">
       <DependentUpon>MirrorDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MirrorViewModel.cs" />
     <Compile Include="NullToVisibilityConverter.cs" />
     <Compile Include="PoKeys.cs" />
     <Compile Include="PoKeysEnumerator.cs" />
@@ -164,7 +165,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Translations\Main.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Main.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -184,6 +185,10 @@
     <ProjectReference Include="..\Aesalon.ArduinoDevices\Aesalon.ArduinoDevices.csproj">
       <Project>{48caddea-38e1-42fc-9bc0-b753e4296fe1}</Project>
       <Name>Aesalon.ArduinoDevices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\F4SharedMemoryMirror\F4SharedMemoryMirror.csproj">
+      <Project>{2a6c84e8-9b59-476e-9c07-a1a1d553f6c3}</Project>
+      <Name>F4SharedMemoryMirror</Name>
     </ProjectReference>
     <ProjectReference Include="..\F4SharedMem\F4SharedMem.csproj">
       <Project>{5dd778b8-ab3e-4b23-b363-49f51fb28e76}</Project>

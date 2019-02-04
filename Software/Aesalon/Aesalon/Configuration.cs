@@ -1,4 +1,5 @@
-﻿using System;
+﻿using F4SharedMemoryMirror;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -16,6 +17,10 @@ namespace Aesalon
         [XmlAttribute("formatVersion")]
         public string FormatVersion { get; set; }
 
+        /// <summary>
+        /// The frequency with which the application checks for changes in shared memory.
+        /// Used by the FalconConnector class.
+        /// </summary>
         public double ReadFalconDataTimerIntervalMS
         {
             get { return FalconConnector.Singleton.ReadFalconDataTimerInterval.TotalMilliseconds; }
@@ -96,6 +101,38 @@ namespace Aesalon
             arduinoGauge.SetOwner(this);
             ArduinoGaugeList.Add(arduinoGauge);
         }
+        #endregion
+
+        #region Shared Memory Mirror
+
+        public bool StartMirrorOnApplicationStart { get; set; }
+        
+        public double MirrorPollingFrequencyMS
+        {
+            get { return Mirror.Singleton.PollingFrequencyMS.TotalMilliseconds; }
+            set { Mirror.Singleton.PollingFrequencyMS = TimeSpan.FromMilliseconds(value); }
+        }
+
+        public NetworkingMode MirrorNetworkingMode
+        {
+            get { return Mirror.Singleton.NetworkingMode; }
+            set { Mirror.Singleton.NetworkingMode = value; }
+        }
+
+        public string MirrorServerIP
+        {
+            get { return Mirror.Singleton.ServerIP; }
+            set { Mirror.Singleton.ServerIP = value; }
+        }
+
+        public int MirrorServerPort
+        {
+            get { return Mirror.Singleton.ServerPort; }
+            set { Mirror.Singleton.ServerPort = value; }
+        }
+        
+        
+
         #endregion
     }
 }
