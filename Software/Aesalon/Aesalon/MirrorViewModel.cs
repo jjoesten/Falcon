@@ -1,4 +1,6 @@
-﻿namespace Aesalon
+﻿using F4SharedMemoryMirror;
+
+namespace Aesalon
 {
     public class MirrorViewModel : BindableObject
     {
@@ -16,6 +18,25 @@
         }
 
         #region Mirroring Commands
+
+        private void ExecuteStartMirroring(object o)
+        {
+            Mirror.Singleton.StartMirroring();
+        }
+        private bool CanExecuteStartMirroring(object o)
+        {
+            return !Mirror.Singleton.IsRunning;
+        }
+
+        private void ExecuteStopMirroring(object o)
+        {
+            Mirror.Singleton.StopMirroring();
+        }
+        private bool CanExecuteStopMirroring(object o)
+        {
+            return Mirror.Singleton.IsRunning;
+        }
+
 
         #endregion
     }

@@ -22,6 +22,20 @@ namespace Aesalon
         public MirrorDialog()
         {
             InitializeComponent();
+            DataContext = new MirrorViewModel();
+        }
+
+        private void Window_Unloaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ConfigHolder.Singleton.Save();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, Translations.Main.ConfigSaveErrorCaption, MessageBoxButton.OK, MessageBoxImage.Error);
+                throw;
+            }
         }
     }
 }

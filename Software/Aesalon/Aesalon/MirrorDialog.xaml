@@ -3,28 +3,80 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syst ="clr-namespace:System.Threading;assembly=mscorlib"
         xmlns:local="clr-namespace:Aesalon"
         xmlns:lang="clr-namespace:Aesalon.Translations"
+        xmlns:mirror="clr-namespace:F4SharedMemoryMirror;assembly=F4SharedMemoryMirror"
+        xmlns:xceed="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="MirrorDialog" Height="450" Width="800">
+        Title="MirrorDialog" Height="450" Width="800"
+        Unloaded="Window_Unloaded">
+    <Window.Resources>
+        <local:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+    </Window.Resources>
+    
     <StackPanel Orientation="Vertical">
         <!-- START/STOP BUTTONS -->
         <StackPanel Orientation="Horizontal">
-            <Button Content="{x:Static lang:Main.MirrorStart}" />
-            <Button Content="{x:Static lang:Main.MirrorEnd}" />
+            <Button Content="{x:Static lang:Main.MirrorStart}"
+                    Command="{Binding Path=StartMirroringCommand}"/>
+            <Button Content="{x:Static lang:Main.MirrorEnd}"
+                    Command="{Binding Path=StopMirroringCommand}"/>
         </StackPanel>
         <!-- NETWORKING SETTINGS -->
         <GroupBox Header="Networking Settings">
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
-                    <RadioButton Content="Client" />
-                    <RadioButton Content="Server" />
+                    <RadioButton Content="Client"
+                                 IsChecked="{Binding Path=ConfigHolder.Configuration.MirrorNetworkingMode, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static mirror:NetworkingMode.Client}}"/>
+                    <RadioButton Content="Server"
+                                 IsChecked="{Binding Path=ConfigHolder.Configuration.MirrorNetworkingMode, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static mirror:NetworkingMode.Server}}"/>
                 </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0"
+                               Grid.Row="0"
+                               Text="{x:Static lang:Main.MirrorServerIPAddress}" />
+                    <TextBox Grid.Column="1"
+                             Grid.Row="0"
+                             Text="{Binding Path=ConfigHolder.Configuration.MirrorServerIP}"/>
+                    <TextBlock Grid.Column="0"
+                               Grid.Row="1"
+                               Text="{x:Static lang:Main.MirrorServerPortNumber}" />
+                    <TextBox Grid.Column="1"
+                             Grid.Row="1"
+                             Text="{Binding Path=ConfigHolder.Configuration.MirrorServerPort}"/>
+                </Grid>
             </StackPanel>
         </GroupBox>
         <!-- PERFORMANCE SETTINGS -->
         <GroupBox Header="Performance Settings">
-            
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Poll for updates every" />
+                    <xceed:IntegerUpDown Value="{Binding Path=ConfigHolder.Configuration.MirrorPollingFrequencyMS}"/>
+                    <TextBlock Text="ms" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Priority" />
+                    <ComboBox ItemsSource="{Binding Source={local:EnumBindingSource {x:Type syst:ThreadPriority}}}"
+                              SelectedItem="{Binding Path=ConfigHolder.Configuration.MirrorThreadPriority}"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <!-- GENERAL SETTINGS -->
+        <GroupBox Header="General Settings">
+            <StackPanel Orientation="Vertical">
+                <CheckBox Content="Start Mirroring When Application Starts"
+                          IsChecked="{Binding Path=ConfigHolder.Configuration.StartMirrorOnApplicationStart}"/>
+            </StackPanel>
         </GroupBox>
     </StackPanel>
 </Window>

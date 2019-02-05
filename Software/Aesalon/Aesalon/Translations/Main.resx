@@ -333,4 +333,10 @@
   <data name="MirrorStart" xml:space="preserve">
     <value>Start Mirroring</value>
   </data>
+  <data name="MirrorServerIPAddress" xml:space="preserve">
+    <value>Server IP Address</value>
+  </data>
+  <data name="MirrorServerPortNumber" xml:space="preserve">
+    <value>Server Port Number</value>
+  </data>
 </root>

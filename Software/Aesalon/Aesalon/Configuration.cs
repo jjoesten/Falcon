@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
@@ -129,6 +130,12 @@ namespace Aesalon
         {
             get { return Mirror.Singleton.ServerPort; }
             set { Mirror.Singleton.ServerPort = value; }
+        }
+
+        public ThreadPriority MirrorThreadPriority
+        {
+            get { return Mirror.Singleton.ThreadPriority; }
+            set { Mirror.Singleton.ThreadPriority = value; }
         }
         
         

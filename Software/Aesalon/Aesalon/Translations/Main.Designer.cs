@@ -439,6 +439,24 @@ namespace Aesalon.Translations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Server IP Address.
+        /// </summary>
+        public static string MirrorServerIPAddress {
+            get {
+                return ResourceManager.GetString("MirrorServerIPAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server Port Number.
+        /// </summary>
+        public static string MirrorServerPortNumber {
+            get {
+                return ResourceManager.GetString("MirrorServerPortNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Start Mirroring.
         /// </summary>
         public static string MirrorStart {

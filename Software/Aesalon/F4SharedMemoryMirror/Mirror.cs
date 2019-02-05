@@ -59,6 +59,7 @@ namespace F4SharedMemoryMirror
         public NetworkingMode NetworkingMode { get; set; }
         public int ServerPort { get; set; }
         public string ServerIP { get; set; }
+        public ThreadPriority ThreadPriority { get; set; }
         public bool IsRunning { get { return running; } }
 
         ITargetBlock<DateTimeOffset> PollingTask(Action<DateTimeOffset> action, CancellationToken cancellationToken)
@@ -150,6 +151,8 @@ namespace F4SharedMemoryMirror
 
         private void ClientWork()
         {
+            // TODO: REMOVE
+            Debug.WriteLine("Do Client Work");
             try
             {
                 byte[] primaryFlightData = null;
@@ -222,6 +225,8 @@ namespace F4SharedMemoryMirror
 
         private void ServerWork()
         {
+            // TODO: REMOVE
+            Debug.WriteLine("Do Server Work");
             try
             {
                 var primaryFlightData = reader.GetRawPrimaryFlightData();

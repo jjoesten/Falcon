@@ -55,6 +55,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.8.19076.18510, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xceed.Wpf.Toolkit.3.8.19076.18510\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -74,6 +77,8 @@
     </Compile>
     <Compile Include="ConfigurationViewModel.cs" />
     <Compile Include="DigitalOutput.cs" />
+    <Compile Include="EnumBindingSourceExtension.cs" />
+    <Compile Include="EnumToBooleanConverter.cs" />
     <Compile Include="FalconConnector.cs" />
     <Compile Include="FalconGauge.cs" />
     <Compile Include="FalconGaugeDigit.cs" />
