@@ -8,12 +8,13 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Aesalon</RootNamespace>
     <AssemblyName>Aesalon</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,11 +36,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommandMessenger">
+      <HintPath>..\..\..\..\Arduino-CmdMessenger\extras\CSharp\CommandMessenger\bin\Release\CommandMessenger.dll</HintPath>
+    </Reference>
+    <Reference Include="Hardcodet.NotifyIcon.Wpf, Version=1.1.0.0, Culture=neutral, PublicKeyToken=682384a853a08aad, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hardcodet.NotifyIcon.Wpf.1.1.0\lib\net472\Hardcodet.NotifyIcon.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Hardcodet.Wpf.TaskbarNotification, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Hardcodet.NotifyIcon.Wpf.1.0.8\lib\net451\Hardcodet.Wpf.TaskbarNotification.dll</HintPath>
     </Reference>
     <Reference Include="PoKeysDevice_DLL">
-      <HintPath>..\Libraries\PoKeysDevice_DLL.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\PoLabs\PoKeys\PoKeysDevice_DLL.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -85,6 +92,8 @@
     <Compile Include="NullToVisibilityConverter.cs" />
     <Compile Include="PoKeys.cs" />
     <Compile Include="PoKeysEnumerator.cs" />
+    <Compile Include="PoStep.cs" />
+    <Compile Include="PoStepStepperMotor.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="SelectorHelper.cs" />
     <Compile Include="SevenSegmentDigit.cs" />
@@ -157,8 +166,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Translations\Main.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Main.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -174,13 +184,13 @@
     <Resource Include="Aesalon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\lightningstools\src\F4SharedMem\F4SharedMem.csproj">
+      <Project>{517d1b4d-e8c7-4331-bbe7-300fd6b78441}</Project>
+      <Name>F4SharedMem</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Aesalon.ArduinoDevices\Aesalon.ArduinoDevices.csproj">
       <Project>{48caddea-38e1-42fc-9bc0-b753e4296fe1}</Project>
       <Name>Aesalon.ArduinoDevices</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\F4SharedMem\F4SharedMem.csproj">
-      <Project>{5dd778b8-ab3e-4b23-b363-49f51fb28e76}</Project>
-      <Name>F4SharedMem</Name>
     </ProjectReference>
     <ProjectReference Include="..\SimplifiedCommon\SimplifiedCommon.csproj">
       <Project>{638452a8-adb8-433c-ab4b-793083c7d4c0}</Project>

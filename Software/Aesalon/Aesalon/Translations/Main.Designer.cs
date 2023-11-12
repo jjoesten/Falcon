@@ -19,7 +19,7 @@ namespace Aesalon.Translations {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Main {
@@ -102,6 +102,15 @@ namespace Aesalon.Translations {
         public static string AddPoKeysButton {
             get {
                 return ResourceManager.GetString("AddPoKeysButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add PoStepVID6606 Control Board.
+        /// </summary>
+        public static string AddPoStepButton {
+            get {
+                return ResourceManager.GetString("AddPoStepButton", resourceCulture);
             }
         }
         
@@ -552,6 +561,24 @@ namespace Aesalon.Translations {
         public static string RemovePoKeysText {
             get {
                 return ResourceManager.GetString("RemovePoKeysText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove PoStep.
+        /// </summary>
+        public static string RemovePoStepCaption {
+            get {
+                return ResourceManager.GetString("RemovePoStepCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove PoStep.
+        /// </summary>
+        public static string RemovePoStepDisplayText {
+            get {
+                return ResourceManager.GetString("RemovePoStepDisplayText", resourceCulture);
             }
         }
         

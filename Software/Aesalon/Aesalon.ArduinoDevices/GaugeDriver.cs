@@ -1,5 +1,5 @@
 ﻿using CommandMessenger;
-using CommandMessenger.TransportLayer;
+using CommandMessenger.Transport.Serial;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -46,15 +46,13 @@ namespace Aesalon.ArduinoDevices
             {
                 CurrentSerialSettings = { PortName = portname, BaudRate = BAUD_RATE, DtrEnable = false }
             };
-            CmdMessenger cmdMessenger = new CmdMessenger(serialTransport)
-            {
-                BoardType = BoardType.Bit16
-            };
+            CmdMessenger cmdMessenger = new CmdMessenger(serialTransport, BoardType.Bit16);
 
             try
             {
-                cmdMessenger.StartListening();
+                cmdMessenger.Connect();
 
+                // TODO: Should this be a command callback?
                 var command = new SendCommand((int)Command.HandshakeRequest, (int)Command.HandshakeResponse, 1000);
                 var handshakeResultCommand = cmdMessenger.SendCommand(command);
 
@@ -94,7 +92,7 @@ namespace Aesalon.ArduinoDevices
             }
             finally
             {
-                cmdMessenger.StopListening();
+                cmdMessenger.Disconnect();
                 cmdMessenger.Dispose();
                 cmdMessenger = null;
                 serialTransport.Dispose();
@@ -131,17 +129,17 @@ namespace Aesalon.ArduinoDevices
                 CurrentSerialSettings = { PortName = device.PortName, BaudRate = BAUD_RATE, DtrEnable = false }
             };
 
-            cmdMessenger = new CmdMessenger(serialTransport)
-            {
-                BoardType = BoardType.Bit16
-            };
+            cmdMessenger = new CmdMessenger(serialTransport, BoardType.Bit16);
 
-            cmdMessenger.StartListening();
+            AttachCommandCallbacks();
+
+            // Start Listening
+            cmdMessenger.Connect();
         }
 
         public void Dispose()
         {
-            cmdMessenger.StopListening();
+            cmdMessenger.Disconnect();
             cmdMessenger.Dispose();
             serialTransport.Dispose();
             cmdMessenger = null;
@@ -149,5 +147,21 @@ namespace Aesalon.ArduinoDevices
         }
 
         #endregion
+
+        private void AttachCommandCallbacks()
+        {
+            cmdMessenger.Attach(OnUnknownCommand);
+            cmdMessenger.Attach((int)Command.Status, OnStatus);
+        }
+
+        void OnUnknownCommand(ReceivedCommand arguments)
+        {
+
+        }
+
+        void OnStatus(ReceivedCommand arguments)
+        {
+
+        }
     }
 }

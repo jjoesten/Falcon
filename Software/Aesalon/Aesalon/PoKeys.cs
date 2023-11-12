@@ -17,6 +17,7 @@ namespace Aesalon
             AddDigitalOutputCommand = new RelayCommand(ExecuteAddDigitalOutput);
             AddMatrixLedOutputCommand = new RelayCommand(ExecuteAddMatrixLedOutput);
             AddSevenSegmentDisplayCommand = new RelayCommand(ExecuteAddSevenSegmentDisplay);
+            AddPoStepCommand = new RelayCommand(ExecuteAddPoStepCommand);
         }
 
         public void Dispose()
@@ -165,6 +166,21 @@ namespace Aesalon
         }
         #endregion
 
+        #region PoStep Board
+
+        private PoStep poStep;
+        public PoStep PoStep
+        {
+            get { return poStep; }
+            set
+            {
+                poStep = value;
+                RaisePropertyChanged(() => PoStep);
+            }
+        }
+
+        #endregion
+
         #region Error
         private string error;
         public string Error
@@ -266,6 +282,17 @@ namespace Aesalon
             SevenSegmentDisplay sevenSegmentDisplay = new SevenSegmentDisplay();
             sevenSegmentDisplay.SetOwner(this);
             SevenSegmentDisplayList.Add(sevenSegmentDisplay);
+        }
+        #endregion
+
+        #region AddPoStepCommand
+        [XmlIgnore]
+        public RelayCommand AddPoStepCommand { get; private set; }
+        private void ExecuteAddPoStepCommand(object o)
+        {
+            PoStep poStep = new PoStep();
+            poStep.SetOwner(this);
+            PoStep = poStep;
         }
         #endregion
 

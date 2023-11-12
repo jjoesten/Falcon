@@ -324,4 +324,13 @@
   <data name="MenuItemSharedMemoryRecorder" xml:space="preserve">
     <value>Shared Memory Recorder</value>
   </data>
+  <data name="AddPoStepButton" xml:space="preserve">
+    <value>Add PoStepVID6606 Control Board</value>
+  </data>
+  <data name="RemovePoStepCaption" xml:space="preserve">
+    <value>Remove PoStep</value>
+  </data>
+  <data name="RemovePoStepDisplayText" xml:space="preserve">
+    <value>Remove PoStep</value>
+  </data>
 </root>

@@ -20,8 +20,8 @@ namespace Aesalon
             AddAdditionalPointCommand = new RelayCommand(ExecuteAddAdditionalPoint);
             RemoveAdditionalPointCommand = new RelayCommand(ExecuteRemoveAdditionalPoint, CanExecuteRemoveAdditionalPoint);
 
-            MinPoint = DefaultMinPoint();
-            MaxPoint = DefaultMaxPoint();
+            minPoint = DefaultMinPoint();
+            maxPoint = DefaultMaxPoint();
             AdditionalPointList = new ObservableCollection<ArduinoGaugePoint>();
         }
 
