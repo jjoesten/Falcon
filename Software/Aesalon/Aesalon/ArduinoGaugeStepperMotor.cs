@@ -22,7 +22,7 @@ namespace Aesalon
 
             minPoint = DefaultMinPoint();
             maxPoint = DefaultMaxPoint();
-            AdditionalPointList = new ObservableCollection<ArduinoGaugePoint>();
+            AdditionalPointList = new ObservableCollection<StepperGaugePoint>();
         }
 
         public void Dispose()
@@ -138,10 +138,10 @@ namespace Aesalon
                 return MaxPoint.StepperValue;
 
             // Find the segment that contains falconValue
-            ArduinoGaugePoint previousPoint = MinPoint;
-            ArduinoGaugePoint nextPoint = null;
+            StepperGaugePoint previousPoint = MinPoint;
+            StepperGaugePoint nextPoint = null;
 
-            foreach (ArduinoGaugePoint additionalPoint in AdditionalPointList)
+            foreach (StepperGaugePoint additionalPoint in AdditionalPointList)
             {
                 if (falconValue.Value >= additionalPoint.FalconValue)
                     previousPoint = additionalPoint;
@@ -164,8 +164,8 @@ namespace Aesalon
         #endregion
 
         #region MinPoint
-        private ArduinoGaugePoint minPoint;
-        public ArduinoGaugePoint MinPoint
+        private StepperGaugePoint minPoint;
+        public StepperGaugePoint MinPoint
         {
             get { return minPoint; }
             set
@@ -183,17 +183,17 @@ namespace Aesalon
             }
         }
 
-        private ArduinoGaugePoint DefaultMinPoint()
+        private StepperGaugePoint DefaultMinPoint()
         {
-            ArduinoGaugePoint point = new ArduinoGaugePoint() { FalconValue = DefaultFalconMinValue, StepperValue = 0 };
+            StepperGaugePoint point = new StepperGaugePoint() { FalconValue = DefaultFalconMinValue, StepperValue = 0 };
             point.PropertyChanged += OnPointChanged;
             return point;
         }
         #endregion
 
         #region MaxPoint
-        private ArduinoGaugePoint maxPoint;
-        public ArduinoGaugePoint MaxPoint
+        private StepperGaugePoint maxPoint;
+        public StepperGaugePoint MaxPoint
         {
             get { return maxPoint; }
             set
@@ -211,17 +211,17 @@ namespace Aesalon
             }
         }
 
-        private ArduinoGaugePoint DefaultMaxPoint()
+        private StepperGaugePoint DefaultMaxPoint()
         {
-            ArduinoGaugePoint point = new ArduinoGaugePoint() { FalconValue = DefaultFalconMaxValue, StepperValue = (315 * 3) };
+            StepperGaugePoint point = new StepperGaugePoint() { FalconValue = DefaultFalconMaxValue, StepperValue = (315 * 3) };
             point.PropertyChanged += OnPointChanged;
             return point;
         }
         #endregion
 
         #region AdditionalPointsList
-        private ObservableCollection<ArduinoGaugePoint> additionalPointList;
-        public ObservableCollection<ArduinoGaugePoint> AdditionalPointList
+        private ObservableCollection<StepperGaugePoint> additionalPointList;
+        public ObservableCollection<StepperGaugePoint> AdditionalPointList
         {
             get { return additionalPointList; }
             set
@@ -229,7 +229,7 @@ namespace Aesalon
                 if (additionalPointList != null)
                 {
                     additionalPointList.CollectionChanged -= OnAdditionalPointListChanged;
-                    foreach (ArduinoGaugePoint additionalPoint in additionalPointList)
+                    foreach (StepperGaugePoint additionalPoint in additionalPointList)
                         additionalPoint.PropertyChanged -= OnPointChanged;
                 }
 
@@ -238,7 +238,7 @@ namespace Aesalon
                 if (additionalPointList != null)
                 {
                     additionalPointList.CollectionChanged += OnAdditionalPointListChanged;
-                    foreach (ArduinoGaugePoint additionalPoint in additionalPointList)
+                    foreach (StepperGaugePoint additionalPoint in additionalPointList)
                         additionalPoint.PropertyChanged += OnPointChanged;
                 }
 
@@ -253,17 +253,17 @@ namespace Aesalon
             switch (e.Action)
             {
                 case NotifyCollectionChangedAction.Add:
-                    foreach (ArduinoGaugePoint additionalPoint in e.NewItems.Cast<ArduinoGaugePoint>())
+                    foreach (StepperGaugePoint additionalPoint in e.NewItems.Cast<StepperGaugePoint>())
                         additionalPoint.PropertyChanged += OnPointChanged;
                     break;
                 case NotifyCollectionChangedAction.Remove:
-                    foreach (ArduinoGaugePoint additionalPoint in e.OldItems.Cast<ArduinoGaugePoint>())
+                    foreach (StepperGaugePoint additionalPoint in e.OldItems.Cast<StepperGaugePoint>())
                         additionalPoint.PropertyChanged -= OnPointChanged;
                     break;
                 case NotifyCollectionChangedAction.Replace:
-                    foreach (ArduinoGaugePoint additionalPoint in e.OldItems.Cast<ArduinoGaugePoint>())
+                    foreach (StepperGaugePoint additionalPoint in e.OldItems.Cast<StepperGaugePoint>())
                         additionalPoint.PropertyChanged -= OnPointChanged;
-                    foreach (ArduinoGaugePoint additionalPoint in e.NewItems.Cast<ArduinoGaugePoint>())
+                    foreach (StepperGaugePoint additionalPoint in e.NewItems.Cast<StepperGaugePoint>())
                         additionalPoint.PropertyChanged += OnPointChanged;
                     break;
             }
@@ -274,13 +274,13 @@ namespace Aesalon
         #endregion
 
         #region Points
-        public IEnumerable<ArduinoGaugePoint> Points
+        public IEnumerable<StepperGaugePoint> Points
         {
             get
             {
                 yield return MinPoint;
 
-                foreach (ArduinoGaugePoint additionalPoint in AdditionalPointList)
+                foreach (StepperGaugePoint additionalPoint in AdditionalPointList)
                     yield return additionalPoint;
 
                 yield return MaxPoint;
@@ -422,7 +422,7 @@ namespace Aesalon
             MinStepperMotorValue = MinPoint.StepperValue;
             MaxStepperMotorValue = MaxPoint.StepperValue;
 
-            foreach (ArduinoGaugePoint point in Points)
+            foreach (StepperGaugePoint point in Points)
             {
                 if (point.StepperValue < MinStepperMotorValue)
                     MinStepperMotorValue = point.StepperValue;
@@ -471,9 +471,9 @@ namespace Aesalon
         public RelayCommand AddAdditionalPointCommand { get; private set; }
         private void ExecuteAddAdditionalPoint(object o)
         {
-            ArduinoGaugePoint previousPoint = AdditionalPointList.LastOrDefault() ?? MinPoint;
-            ArduinoGaugePoint nextPoint = MaxPoint;
-            ArduinoGaugePoint additionalPoint = new ArduinoGaugePoint()
+            StepperGaugePoint previousPoint = AdditionalPointList.LastOrDefault() ?? MinPoint;
+            StepperGaugePoint nextPoint = MaxPoint;
+            StepperGaugePoint additionalPoint = new StepperGaugePoint()
             {
                 FalconValue = (previousPoint.FalconValue + nextPoint.FalconValue) / 2,
                 StepperValue = (ushort)((previousPoint.StepperValue + nextPoint.StepperValue) / 2)
@@ -484,12 +484,12 @@ namespace Aesalon
         public RelayCommand RemoveAdditionalPointCommand { get; private set; }
         private void ExecuteRemoveAdditionalPoint(object o)
         {
-            ArduinoGaugePoint additionalPoint = (ArduinoGaugePoint)o;
+            StepperGaugePoint additionalPoint = (StepperGaugePoint)o;
             AdditionalPointList.Remove(additionalPoint);
         }
         private bool CanExecuteRemoveAdditionalPoint(object o)
         {
-            ArduinoGaugePoint additionalPoint = (ArduinoGaugePoint)o;
+            StepperGaugePoint additionalPoint = (StepperGaugePoint)o;
             return AdditionalPointList.Contains(additionalPoint);
         }
 

@@ -106,15 +106,6 @@ namespace Aesalon.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add PoStepVID6606 Control Board.
-        /// </summary>
-        public static string AddPoStepButton {
-            get {
-                return ResourceManager.GetString("AddPoStepButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Add a 7 segment display.
         /// </summary>
         public static string AddSevenSegmentDisplayButton {
@@ -565,24 +556,6 @@ namespace Aesalon.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Remove PoStep.
-        /// </summary>
-        public static string RemovePoStepCaption {
-            get {
-                return ResourceManager.GetString("RemovePoStepCaption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Remove PoStep.
-        /// </summary>
-        public static string RemovePoStepDisplayText {
-            get {
-                return ResourceManager.GetString("RemovePoStepDisplayText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Remove 7 segment display.
         /// </summary>
         public static string RemoveSevenSegmentDisplayCaption {
@@ -682,7 +655,7 @@ namespace Aesalon.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Gauge.
+        ///   Looks up a localized string similar to Motor.
         /// </summary>
         public static string StepperMotorConfigCaption {
             get {

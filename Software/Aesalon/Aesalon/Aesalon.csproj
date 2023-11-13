@@ -70,7 +70,7 @@
     </ApplicationDefinition>
     <Compile Include="ArduinoGauge.cs" />
     <Compile Include="ArduinoGaugeEnumerator.cs" />
-    <Compile Include="ArduinoGaugePoint.cs" />
+    <Compile Include="StepperGaugePoint.cs" />
     <Compile Include="ArduinoGaugeStepperMotor.cs" />
     <Compile Include="AvailablePoKeys.cs" />
     <Compile Include="BindableObject.cs" />
@@ -92,7 +92,6 @@
     <Compile Include="NullToVisibilityConverter.cs" />
     <Compile Include="PoKeys.cs" />
     <Compile Include="PoKeysEnumerator.cs" />
-    <Compile Include="PoStep.cs" />
     <Compile Include="PoStepStepperMotor.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="SelectorHelper.cs" />

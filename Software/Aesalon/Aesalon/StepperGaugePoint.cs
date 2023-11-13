@@ -1,6 +1,6 @@
 ﻿namespace Aesalon
 {
-    public class ArduinoGaugePoint : BindableObject
+    public class StepperGaugePoint : BindableObject
     {
         private float falconValue;
         public float FalconValue

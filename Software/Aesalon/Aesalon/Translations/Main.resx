@@ -301,7 +301,7 @@
     <value>Segment matrix LED row index :</value>
   </data>
   <data name="StepperMotorConfigCaption" xml:space="preserve">
-    <value>Gauge</value>
+    <value>Motor</value>
   </data>
   <data name="StepperMotorPointFalconValue" xml:space="preserve">
     <value>Falcon value</value>
@@ -323,14 +323,5 @@
   </data>
   <data name="MenuItemSharedMemoryRecorder" xml:space="preserve">
     <value>Shared Memory Recorder</value>
-  </data>
-  <data name="AddPoStepButton" xml:space="preserve">
-    <value>Add PoStepVID6606 Control Board</value>
-  </data>
-  <data name="RemovePoStepCaption" xml:space="preserve">
-    <value>Remove PoStep</value>
-  </data>
-  <data name="RemovePoStepDisplayText" xml:space="preserve">
-    <value>Remove PoStep</value>
   </data>
 </root>

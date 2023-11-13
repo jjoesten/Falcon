@@ -17,7 +17,7 @@ namespace Aesalon
             AddDigitalOutputCommand = new RelayCommand(ExecuteAddDigitalOutput);
             AddMatrixLedOutputCommand = new RelayCommand(ExecuteAddMatrixLedOutput);
             AddSevenSegmentDisplayCommand = new RelayCommand(ExecuteAddSevenSegmentDisplay);
-            AddPoStepCommand = new RelayCommand(ExecuteAddPoStepCommand);
+            AddStepperMotorCommand = new RelayCommand(ExecuteAddStepperMotor);
         }
 
         public void Dispose()
@@ -30,6 +30,9 @@ namespace Aesalon
 
             foreach (SevenSegmentDisplay sevenSegmentDisplay in SevenSegmentDisplayList)
                 sevenSegmentDisplay.Dispose();
+
+            foreach (PoStepStepperMotor stepperMotor in stepperMotorList)
+                stepperMotor.Dispose();
         }
 
         #endregion
@@ -166,19 +169,17 @@ namespace Aesalon
         }
         #endregion
 
-        #region PoStep Board
-
-        private PoStep poStep;
-        public PoStep PoStep
+        #region StepperMotorList
+        private ObservableCollection<PoStepStepperMotor> stepperMotorList = new ObservableCollection<PoStepStepperMotor>();
+        public ObservableCollection<PoStepStepperMotor> StepperMotorList
         {
-            get { return poStep; }
+            get { return stepperMotorList; }
             set
             {
-                poStep = value;
-                RaisePropertyChanged(() => PoStep);
+                stepperMotorList = value;
+                RaisePropertyChanged(() => StepperMotorList);
             }
         }
-
         #endregion
 
         #region Error
@@ -285,14 +286,14 @@ namespace Aesalon
         }
         #endregion
 
-        #region AddPoStepCommand
+        #region AddStepperMotorCommand
         [XmlIgnore]
-        public RelayCommand AddPoStepCommand { get; private set; }
-        private void ExecuteAddPoStepCommand(object o)
+        public RelayCommand AddStepperMotorCommand { get; private set; }
+        private void ExecuteAddStepperMotor(object o)
         {
-            PoStep poStep = new PoStep();
-            poStep.SetOwner(this);
-            PoStep = poStep;
+            PoStepStepperMotor stepperMotor = new PoStepStepperMotor();
+            stepperMotor.SetOwner(this);
+            StepperMotorList.Add(stepperMotor);
         }
         #endregion
 
