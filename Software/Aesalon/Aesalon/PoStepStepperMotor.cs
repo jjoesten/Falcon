@@ -187,25 +187,7 @@ namespace Aesalon
                 outputTarget = value;
                 RaisePropertyChanged(() => OutputTarget);
 
-                UpdateOutputTarget();
-            }
-        }
-
-        /// <summary>
-        ///  Sends the output target value to the stepper motor controller
-        /// </summary>
-        private void UpdateOutputTarget()
-        {
-            if (string.IsNullOrEmpty(Error) && owner != null && owner.PoKeysIndex.HasValue && MotorId.HasValue)
-            {
-                try
-                {
-                    // TODO: set target on controller
-                }
-                catch (Exception e) 
-                {
-                    Error = e.Message;
-                }
+                WriteOutputState();
             }
         }
         #endregion
@@ -473,7 +455,7 @@ namespace Aesalon
         #region WriteOutputState
         private void WriteOutputState()
         {
-            if (string.IsNullOrEmpty(Error) && owner != null && owner.PoKeysIndex.HasValue)  // TODO: any other check for stepper here? ref 7seg
+            if (string.IsNullOrEmpty(Error) && owner != null && owner.PoKeysIndex.HasValue && MotorId.HasValue)  // TODO: any other check for stepper here? ref 7seg
             {
                 PoKeysDevice poKeysDevice = PoKeysEnumerator.Singleton.PoKeysDevice;
 
@@ -483,7 +465,7 @@ namespace Aesalon
                 }
                 else
                 {
-                    // TODO: Set Motor Position
+                    poKeysDevice.COM_PEv2_MoveP(MotorId.Value - 1, OutputTarget);
 
                     poKeysDevice.DisconnectDevice();
                 }
